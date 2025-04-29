@@ -1,92 +1,66 @@
-
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>丹尼斯李 | 隨便想想的創作</title>
-    <style>
-        body {
-            font-family: "Arial", sans-serif;
-            background-color: #fff5f0;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #ff7043;
-            color: white;
-            padding: 1rem 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-        .header-text {
-            flex: 1;
-            text-align: left;
-        }
-        .header-img {
-            height: 100px;
-            max-width: 150px;
-            margin-left: 1rem;
-        }
-        .container {
-            padding: 2rem;
-        }
-        .section {
-            margin-bottom: 2rem;
-        }
-        h1, h2 {
-            color: #d84315;
-        }
-        .project {
-            background-color: #ffe0b2;
-            padding: 1rem;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-        }
-        a {
-            color: #d84315;
-            text-decoration: none;
-        }
-        .footer-img {
-            width: 100%;
-            max-width: 600px;
-            display: block;
-            margin: 0 auto;
-            padding: 1rem 0;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>隨便想想的創作</title>
+  <style>
+    body {
+      background-color: #fff8f0;
+      font-family: "微軟正黑體", sans-serif;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header, footer {
+      background-color: #fcae91;
+      padding: 10px;
+      position: relative;
+    }
+    header img {
+      position: absolute;
+      right: 10px;
+      top: 5px;
+      width: 300px; /* 放大3倍大約是這個尺寸 */
+    }
+    footer img {
+      position: absolute;
+      right: 10px;
+      bottom: 5px;
+      width: 100px; /* 是上面圖的1/3大小 */
+    }
+    h1 {
+      text-align: center;
+      color: #e64524;
+      margin: 60px 0 20px;
+    }
+    .gif-container {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+    }
+    .gif-container img {
+      max-width: 300px;
+      border: 2px solid #f6b092;
+      border-radius: 10px;
+      background: #fff4ea;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="header-text">
-            <h1>丹尼斯李</h1>
-            <p>隨便想想的創作</p>
-        </div>
-        <img src="header.png" alt="頁首圖片" class="header-img">
-    </header>
-    <div class="container">
-        <div class="section">
-            <h2>關於我</h2>
-            <p>我叫 Dennis Lee，以前有人叫我小李，但現在可叫我老李。</p>
-            <p>我是工科學校畢業，沒有什麼專長，就想嘗試的事情就去嘗試。</p>
-            <p>興趣特多，例如打籃球、游泳、慢跑、爬山等等。</p>
-        </div>
-        <div class="section">
-            <h2>聯絡方式</h2>
-            <p>Email: <a href="mailto:dennis3333308@gmail.com">dennis3333308@gmail.com</a></p>
-            <p>Facebook: <a href="https://www.facebook.com/dennis.lee199" target="_blank">點我看 Facebook</a></p>
-        </div>
-        <div class="section">
-            <h2>我的作品</h2>
-            <div class="project">
-                <h3>小李子 RPG 貼圖</h3>
-                <p>— 可愛風格的角色圖與素材，持續創作中。</p>
-            </div>
-        </div>
-    </div>
-    <img src="footer.png" alt="頁尾圖片" class="footer-img">
+  <header>
+    <img src="header.png" alt="頁首圖片">
+  </header>
+
+  <h1>隨便想想的創作</h1>
+  <div class="gif-container">
+    <img src="archer.gif" alt="作品1">
+    <img src="laughing_oldman.gif" alt="作品2">
+  </div>
+
+  <footer>
+    <img src="footer.png" alt="頁尾圖片">
+  </footer>
 </body>
 </html>
