@@ -16,8 +16,20 @@
         header {
             background-color: #ff7043;
             color: white;
-            padding: 1rem;
-            text-align: center;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .header-text {
+            flex: 1;
+            text-align: left;
+        }
+        .header-img {
+            height: 100px;
+            max-width: 150px;
+            margin-left: 1rem;
         }
         .container {
             padding: 2rem;
@@ -38,12 +50,22 @@
             color: #d84315;
             text-decoration: none;
         }
+        .footer-img {
+            width: 100%;
+            max-width: 600px;
+            display: block;
+            margin: 0 auto;
+            padding: 1rem 0;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>丹尼斯李</h1>
-        <p>隨便想想的創作</p>
+        <div class="header-text">
+            <h1>丹尼斯李</h1>
+            <p>隨便想想的創作</p>
+        </div>
+        <img src="header.png" alt="頁首圖片" class="header-img">
     </header>
     <div class="container">
         <div class="section">
@@ -65,5 +87,6 @@
             </div>
         </div>
     </div>
+    <img src="footer.png" alt="頁尾圖片" class="footer-img">
 </body>
 </html>
