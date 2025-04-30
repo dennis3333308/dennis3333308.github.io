@@ -4,41 +4,59 @@
   <meta charset="UTF-8">
   <title>隨便想想的創作</title>
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background-color: #fff8f0;
+      display: flex;
       font-family: "微軟正黑體", sans-serif;
+      background-color: #fff8f0;
       color: #333;
-      margin: 0;
-      padding: 0;
     }
-    header, footer {
+    nav {
+      width: 220px;
       background-color: #fcae91;
-      padding: 10px;
+      height: 100vh;
+      padding: 20px;
+      position: fixed;
+    }
+    nav h2 {
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    nav a {
+      display: block;
+      margin: 10px 0;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .content {
+      margin-left: 220px;
+      padding: 20px;
+      flex: 1;
+    }
+    header {
+      background-color: #fcd5ce;
+      padding: 20px 10px;
       position: relative;
+      text-align: center;
     }
     header img {
+      width: 300px;
       position: absolute;
       right: 10px;
-      top: 5px;
-      width: 300px; /* 放大3倍大約是這個尺寸 */
-    }
-    footer img {
-      position: absolute;
-      right: 10px;
-      bottom: 5px;
-      width: 100px; /* 是上面圖的1/3大小 */
+      top: 10px;
     }
     h1 {
-      text-align: center;
       color: #e64524;
-      margin: 60px 0 20px;
+      margin: 0;
+      font-size: 32px;
     }
     .gif-container {
-      display: flex;
+      display: none;
       justify-content: center;
       gap: 50px;
       flex-wrap: wrap;
-      margin-bottom: 60px;
+      margin: 30px 0;
     }
     .gif-container img {
       max-width: 300px;
@@ -46,21 +64,75 @@
       border-radius: 10px;
       background: #fff4ea;
     }
+    .show-btn {
+      display: block;
+      margin: 30px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #e64524;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    section {
+      margin-bottom: 60px;
+    }
+    footer {
+      background-color: #fcd5ce;
+      padding: 10px;
+      text-align: right;
+    }
+    footer img {
+      width: 100px;
+    }
   </style>
+  <script>
+    function toggleWorks() {
+      const container = document.querySelector('.gif-container');
+      container.style.display = container.style.display === 'flex' ? 'none' : 'flex';
+    }
+  </script>
 </head>
 <body>
-  <header>
-    <img src="header.png" alt="頁首圖片">
-  </header>
+  <nav>
+    <h2>創作目錄</h2>
+    <a href="#works">作品</a>
+    <a href="food.html">食品</a>
+    <a href="lifestyle.html">生活物品</a>
+    <a href="#about">關於我</a>
+    <a href="#contact">聯絡</a>
+  </nav>
 
-  <h1>隨便想想的創作</h1>
-  <div class="gif-container">
-    <img src="archer.gif" alt="作品1">
-    <img src="laughing_oldman.gif" alt="作品2">
+  <div class="content">
+    <header>
+      <h1>隨便想想的創作</h1>
+      <img src="header.png" alt="頁首圖片">
+    </header>
+
+    <section id="works">
+      <h1>動畫作品</h1>
+      <button class="show-btn" onclick="toggleWorks()">點我看作品</button>
+      <div class="gif-container">
+        <img src="archer.gif" alt="作品1">
+        <img src="laughing_oldman.gif" alt="作品2">
+        <img src="work3.gif" alt="作品3">
+      </div>
+    </section>
+
+    <section id="about">
+      <h1>關於我</h1>
+      <p style="text-align:center;">你好，我是丹尼斯李，這裡是我隨便想想的創作空間！目前展示的是一些趣味動畫，之後會持續更新更多作品。</p>
+    </section>
+
+    <section id="contact">
+      <h1>聯絡方式</h1>
+      <p style="text-align:center;">Email: your@email.com<br>Instagram: @yourhandle</p>
+    </section>
+
+    <footer>
+      <img src="footer.png" alt="頁尾圖片">
+    </footer>
   </div>
-
-  <footer>
-    <img src="footer.png" alt="頁尾圖片">
-  </footer>
 </body>
 </html>
