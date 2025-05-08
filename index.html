@@ -2,137 +2,23 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>丹尼斯李 | 隨便想想的創作</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: "Helvetica Neue", sans-serif;
-      background: url('AC794EBB-10E0-4D9E-BB0B-3F2B7A97DA52.png') no-repeat center center fixed;
-      background-size: contain;
-      background-color: #fff5f0;
-      color: #333;
-    }
-    nav {
-      background-color: rgba(255, 112, 67, 0.9);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    nav h1 {
-      color: white;
-      font-size: 1.5rem;
-      margin: 0;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      margin: 0;
-      padding: 0;
-    }
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    header {
-      text-align: center;
-      padding: 4rem 2rem;
-      background: rgba(255, 255, 255, 0.75);
-    }
-    section {
-      padding: 3rem 2rem;
-      max-width: 960px;
-      margin: auto;
-      display: none;
-      background: rgba(255, 255, 255, 0.85);
-      border-radius: 10px;
-    }
-    section.active {
-      display: block;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-      margin: 1rem 0;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background-color: #ffe0b2;
-      color: #555;
-    }
-  </style>
-  <script>
-    function showSection(id) {
-      const sections = document.querySelectorAll('section');
-      sections.forEach(section => section.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-    }
-    window.onload = () => showSection('works');
-  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>摩尾之療癒星球</title>
 </head>
 <body>
-
-  <nav>
-    <h1>丹尼斯李</h1>
-    <ul>
-      <li><a onclick="showSection('works')">作品</a></li>
-      <li><a onclick="showSection('animation')">動畫作品</a></li>
-      <li><a onclick="showSection('food')">好吃的東東</a></li>
-      <li><a onclick="showSection('tools')">好用的東東</a></li>
-      <li><a onclick="showSection('about')">關於我與聯絡</a></li>
-    </ul>
-  </nav>
-
   <header>
-    <h2>隨便想想的創作</h2>
-    <p>歡迎來到我的個人作品集網站</p>
+    <h1>摩尾之療癒星球</h1>
+    <p>摩尾的故事即將展開… 摩塔星</p>
   </header>
 
   <section id="works">
-    <h3>我的作品</h3>
-    <p>小李子 RPG 貼圖 - 可愛風格的角色素材持續創作中。</p>
-    <img src="921086B7-71F2-47D2-9637-FA3A1185C7D5.png" alt="作品圖片">
-  </section>
-
-  <section id="animation">
-    <h3>動畫作品</h3>
-    <p>動作展示動畫 - 傳統人物演繹日常與戰鬥動作</p>
-    <img src="14CF0AC0-D99A-4D55-BCFD-B9E9E5D12C61.gif" alt="動畫作品1">
-    <img src="E66A2B24-FAFF-41A5-8E77-6C54A847051D.gif" alt="動畫作品2">
-  </section>
-
-  <section id="food">
-    <h3>好吃的東東</h3>
-    <img src="921086B7-71F2-47D2-9637-FA3A1185C7D5.png" alt="好吃的東東佔位圖">
-    <p>更多美食創作即將登場，敬請期待！</p>
-  </section>
-
-  <section id="tools">
-    <h3>好用的東東</h3>
-    <img src="921086B7-71F2-47D2-9637-FA3A1185C7D5.png" alt="好用的東東佔位圖">
-    <p>生活實用工具陸續開發中，請密切關注！</p>
-  </section>
-
-  <section id="about">
-    <h3>關於我</h3>
-    <p>我叫 Dennis Lee，以前有人叫我小李，但現在可叫我老李。</p>
-    <p>我是工科學校畢業，沒有什麼專長，就想嘗試的事情就去嘗試。興趣特多，例如打籃球、游泳、慢跑、爬山等等。</p>
-    <h3>聯絡我</h3>
-    <p>Email: <a href="mailto:dennis3333308@gmail.com">dennis3333308@gmail.com</a></p>
-    <p>Facebook: <a href="https://www.facebook.com/dennis.lee199" target="_blank">點我看 Facebook</a></p>
-    <p>LINE 貼圖：<a href="https://line.me/S/sticker/30662937/?lang=zh-Hant&utm_source=gnsh_stickerDetail" target="_blank">摩尾｜摩塔星上的外星生物（職場篇）</a></p>
+    <h2>作品集</h2>
+    <img src="moae_feature_poster.png" alt="摩尾星球封面圖" style="max-width:100%; border-radius:12px;">
   </section>
 
   <footer>
-    © 2025 丹尼斯李｜隨便想想的創作
+    <p>© 2025 丹尼斯李</p>
   </footer>
-
 </body>
 </html>
