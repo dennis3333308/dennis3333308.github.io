@@ -1,12 +1,11 @@
 
 <!DOCTYPE html>
-
 <html lang="zh-Hant">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>丹尼斯李 | 隨便想想的創作</title>
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>丹尼斯李 | 隨便想想的創作</title>
+  <style>
     body {
       margin: 0;
       font-family: "Helvetica Neue", sans-serif;
@@ -41,24 +40,24 @@
     }
     header {
       text-align: center;
-      padding: 4rem 2rem;
-      background: rgba(255, 255, 255, 0.75);
+      padding: 2rem;
     }
     section {
-      padding: 3rem 2rem;
+      padding: 2rem;
       max-width: 960px;
       margin: auto;
       display: none;
-      background: rgba(255, 255, 255, 0.85);
-      border-radius: 10px;
     }
     section.active {
-      display: block;
+      display: block !important;
     }
-    img {
-      max-width: 100%;
-      height: auto;
-      margin: 1rem 0;
+    .centered {
+      text-align: center;
+    }
+    .centered img {
+      max-width: 300px;
+      margin: 1rem;
+      display: inline-block;
     }
     footer {
       text-align: center;
@@ -66,57 +65,61 @@
       background-color: #ffe0b2;
       color: #555;
     }
-  
-    #works, #animation, #food, #tools, #about {
-        display: none;
+  </style>
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => section.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
     }
-    section.active {
-        display: block !important;
-    }
-</style>
-<script>
-function showSection(id) {
-  const sections = document.querySelectorAll('section');
-  sections.forEach(section => section.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-}
-window.onload = () => showSection('works');
-</script>
+    window.onload = () => showSection('works');
+  </script>
 </head>
-<body><section id="works"><h3>我的作品</h3><img alt="作品圖片" src="921086B7-71F2-47D2-9637-FA3A1185C7D5.png" style="max-width:300px; display:block; margin:1rem auto;"/><img alt="作品圖片" src="8F0FD0B1-CHARACTERS.png" style="max-width:300px; display:block; margin:1rem auto;"/></section><section id="animation"><h3>動畫作品</h3><img alt="動畫作品" src="fuel_elder.gif" style="max-width:300px; display:block; margin:1rem auto;"/><img alt="動畫作品" src="archer.gif" style="max-width:300px; display:block; margin:1rem auto;"/></section>
-<nav>
-<h1>丹尼斯李</h1>
-<ul>
-<li><a onclick="showSection('works')">作品</a></li>
-<li><a onclick="showSection('animation')">動畫作品</a></li>
-<li><a onclick="showSection('food')">好吃的東東</a></li>
-<li><a onclick="showSection('tools')">好用的東東</a></li>
-<li><a onclick="showSection('about')">關於我與聯絡</a></li>
-</ul>
-</nav>
-<header>
-<h2>隨便想想的創作</h2>
-<p>歡迎來到我的個人作品集網站</p>
-</header>
-<section id="about" style="color: #ff7043;">
-<h3>關於我</h3>
-<p>我叫 Dennis Lee，以前有人叫我小李，但現在可叫我老李。</p>
-<p>我是工科學校畢業，沒有什麼專長，就想嘗試的事情就去嘗試。興趣特多，例如打籃球、游泳、慢跑、爬山等等。</p>
-<h3>有任何想法想告訴我？</h3>
-<p>Email: <a href="mailto:dennis3333308@gmail.com">dennis3333308@gmail.com</a></p>
-<p>Facebook: <a href="https://www.facebook.com/dennis.lee199" target="_blank">點我看 Facebook</a></p>
-<p>LINE 貼圖：<a href="https://line.me/S/sticker/30662937/?lang=zh-Hant&amp;utm_source=gnsh_stickerDetail" target="_blank">摩尾｜摩塔星上的外星生物（職場篇）</a></p>
-<article class="item">
-<header>
-<h3 style="color: #ff7043;">摩尾誕生於手術台</h3>
-</header>
-<a class="image fit" href="49271ebc-7947-45f1-92fb-d01e3a3759d0.png">
-<img alt="摩尾誕生於手術台" src="49271ebc-7947-45f1-92fb-d01e3a3759d0.png" style="width:25%; max-width:100%; height:auto;"/>
-</a>
-</article>
-</section>
-<footer>
+<body>
+
+  <nav>
+    <h1>丹尼斯李</h1>
+    <ul>
+      <li><a onclick="showSection('works')">作品</a></li>
+      <li><a onclick="showSection('animation')">動畫作品</a></li>
+      <li><a onclick="showSection('food')">好吃的東東</a></li>
+      <li><a onclick="showSection('tools')">好用的東東</a></li>
+      <li><a onclick="showSection('about')">關於我與聯絡</a></li>
+    </ul>
+  </nav>
+
+  <section id="works" class="centered active">
+    <h3>我的作品</h3>
+    <img src="921086B7-71F2-47D2-9637-FA3A1185C7D5.png" alt="作品圖1" />
+    <img src="8F0FD0B1-CHARACTERS.png" alt="作品圖2" />
+  </section>
+
+  <section id="animation" class="centered">
+    <h3>動畫作品</h3>
+    <img src="fuel_elder.gif" alt="動畫圖1" />
+    <img src="archer.gif" alt="動畫圖2" />
+  </section>
+
+  <section id="food" class="centered">
+    <h3>好吃的東東</h3>
+    <p>建構中...</p>
+  </section>
+
+  <section id="tools" class="centered">
+    <h3>好用的東東</h3>
+    <p>建構中...</p>
+  </section>
+
+  <section id="about" class="centered">
+    <h3>關於我</h3>
+    <p>Email: <a href="mailto:dennis3333308@gmail.com">dennis3333308@gmail.com</a></p>
+    <p>Facebook: <a href="https://www.facebook.com/dennis.lee199" target="_blank">點我看 Facebook</a></p>
+    <p>LINE 貼圖：<a href="https://line.me/S/sticker/30662937/?lang=zh-Hant&utm_source=gnsh_stickerDetail" target="_blank">摩尾｜摩塔星上的外星生物（職場篇）</a></p>
+  </section>
+
+  <footer>
     © Dennis_Lee 2025 丹尼斯李
   </footer>
+
 </body>
 </html>
