@@ -1,133 +1,56 @@
-
 <!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>丹尼斯李 | 隨便想想的創作</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: "Helvetica Neue", sans-serif;
-      background-color: #fff5f0;
-      color: #333;
-    }
-    nav {
-      background-color: rgba(255, 112, 67, 0.9);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    nav h1 {
-      color: white;
-      font-size: 1.5rem;
-      margin: 0;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      margin: 0;
-      padding: 0;
-    }
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    header {
-      text-align: center;
-      padding: 2rem;
-    }
-    section {
-      padding: 2rem;
-      max-width: 960px;
-      margin: auto;
-      display: none;
-    }
-    section.active {
-      display: block !important;
-    }
-    .centered {
-      text-align: center;
-    }
-    .centered img {
-      max-width: 300px;
-      margin: 1rem;
-      display: inline-block;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background-color: #ffe0b2;
-      color: #555;
-    }
-  </style>
-  <script>
-    function showSection(id) {
-      const sections = document.querySelectorAll('section');
-      sections.forEach(section => section.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-    }
-    window.onload = () => showSection('works');
-  </script>
-</head>
-<body>
+<html lang='zh-Hant'>
+<head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>摩尾的作品集</title>
+<style>
+body { font-family: sans-serif; background: #fffaf5; color: #333; text-align: center; }
+nav a { margin: 0 15px; color: #f94d00; text-decoration: none; font-weight: bold; }
+section { padding: 50px 20px; display: none; }
+section.active { display: block; }
+img { max-width: 300px; margin: 20px auto; display: block; }
+h3 { margin-bottom: 0; }
+</style>
+<script>
+function showSection(id) {
+  document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+window.onload = () => showSection('作品');
+</script>
+</head><body>
+<nav>
+<a href='#' onclick="showSection('作品')">作品</a>
+<a href='#' onclick="showSection('動畫作品')">動畫作品</a>
+<a href='#' onclick="showSection('好吃的東東')">好吃的東東</a>
+<a href='#' onclick="showSection('好用的東東')">好用的東東</a>
+<a href='#' onclick="showSection('關於我')">關於我</a>
+</nav>
+<section id='作品'><h2>作品</h2>
 
-  <nav>
-    <h1>丹尼斯李</h1>
-    <ul>
-      <li><a onclick="showSection('works')">作品</a></li>
-      <li><a onclick="showSection('animation')">動畫作品</a></li>
-      <li><a onclick="showSection('food')">好吃的東東</a></li>
-      <li><a onclick="showSection('tools')">好用的東東</a></li>
-      <li><a onclick="showSection('about')">關於我與聯絡</a></li>
-    </ul>
-  </nav>
+<img src='作品/0859D848-951C-4C71-8061-CE970B3D27C6.png' alt='' />
 
-  <section id="works" class="centered active">
-    <h3>我的作品</h3>
-    <img src="921086B7-71F2-47D2-9637-FA3A1185C7D5.png" alt="作品圖1" />
-    <img src="AC794EBB-10E0-4D9E-BB0B-3F2B7A97DA52.png" alt="作品圖2" />
-  </section>
+<img src='作品/C3F65532-F14A-4A23-8259-E8857B0C3CD6.png' alt='' />
 
-  <section id="animation" class="centered">
-    <h3>動畫作品</h3>
-    <img src="fuel_elder.gif" alt="動畫圖1" />
-    <img src="archer.gif" alt="動畫圖2" />
-  </section>
+<img src='作品/450A4330-613F-47EB-A01B-406085EEF684.png' alt='' />
+</section>
+<section id='動畫作品'><h2>動畫作品</h2>
+<h3>弓箭動畫</h3>
+<img src='動畫作品/BD1B05F1-5A78-4018-A662-1110862684D5.gif' alt='弓箭動畫' />
+<h3>老人笑的動畫</h3>
+<img src='動畫作品/253D49FF-22D4-4FAE-BF42-C63726795228.gif' alt='老人笑的動畫' />
+</section>
+<section id='好吃的東東'><h2>好吃的東東</h2>
 
-  <section id="food" class="centered">
-    <h3>好吃的東東</h3>
-    <p>建構中...</p>
-  </section>
+<img src='好吃的東東/F8FB669A-B340-4FA7-9BFE-DD8737AB48AA.gif' alt='' />
+</section>
+<section id='好用的東東'><h2>好用的東東</h2>
 
-  <section id="tools" class="centered">
-    <h3>好用的東東</h3>
-    <p>建構中...</p>
-  </section>
+<img src='好用的東東/B436827A-6053-47F3-9700-79C28C22149D.gif' alt='' />
+</section>
+<section id='關於我'><h2>關於我</h2>
 
-  <section id="about" class="centered">
-    <h3>關於我</h3>
-    <p>Email: <a href="mailto:dennis3333308@gmail.com">dennis3333308@gmail.com</a></p>
-    <p>Facebook: <a href="https://www.facebook.com/dennis.lee199" target="_blank">點我看 Facebook</a></p>
-    <p>LINE 貼圖：<a href="https://line.me/S/sticker/30662937/?lang=zh-Hant&utm_source=gnsh_stickerDetail" target="_blank">摩尾｜摩塔星上的外星生物（職場篇）</a></p>
-    <article class="item">
-    <header>
-    <h3 style="color: #ff7043;">摩尾誕生於手術台</h3>
-    </header>
-    <a class="image fit" href="49271ebc-7947-45f1-92fb-d01e3a3759d0.png">
-    <img alt="摩尾誕生於手術台" src="49271ebc-7947-45f1-92fb-d01e3a3759d0.png" style="width:25%; max-width:100%; height:auto;"/>
-    </a>
-  </article>
-  </section>
+<img src='關於我/BB2467CF-0FC3-488C-A680-235DD0BCB443.png' alt='' />
 
-  <footer>
-    © Dennis_Lee 2025 丹尼斯李
-  </footer>
-
-</body>
-</html>
+<img src='關於我/3DD5D4F0-3B69-47A5-AB10-3BD05E9ED1BE.png' alt='' />
+</section>
+</body></html>
