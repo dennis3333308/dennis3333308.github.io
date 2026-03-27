@@ -126,3 +126,76 @@
     </script>
 </body>
 </html>
+    <nav>
+        <div class="logo-area">
+            <img src="LiziQ Logo.jpg" alt="Logo">
+            <span style="letter-spacing: 2px; font-weight: 300; font-size: 0.9rem;">Lizi Q LAB</span>
+        </div>
+        <div class="menu">
+            <button class="menu-btn active" onclick="showPage('home')">首頁</button>
+            <button class="menu-btn" onclick="showPage('laoli')">老李</button>
+            <button class="menu-btn" onclick="showPage('xiaoli')">小李</button>
+            <button class="menu-btn" onclick="showPage('xiaoli_f')">小荔</button>
+            <button class="menu-btn" onclick="showPage('pili')">小霹靂</button>
+            <button class="menu-btn" onclick="showPage('mowei')">魔尾</button>
+            <button class="menu-btn" onclick="showPage('vlab')">廚房</button>
+        </div>
+    </nav>
+
+    <div class="header-banner"></div>
+
+    <section id="home" class="content-section active">
+        <h2 style="text-align:center; font-weight:200; letter-spacing:5px;">CHANNEL SELECTION</h2>
+        <div class="yt-area">
+            <a href="http://www.youtube.com/@LiziQ3308" target="_blank" class="yt-box"><h3>Lizi Q Main</h3><p>Professional Shorts & Animation</p></a>
+            <a href="http://www.youtube.com/@LiziQanimals" target="_blank" class="yt-box"><h3>Lizi Q Animals</h3><p>AI Fantasy Animal Lab</p></a>
+        </div>
+    </section>
+
+    <section id="laoli" class="content-section"><div class="grid">
+        <div class="card"><div class="media-container"><img src="Lizi Q_0_0.gif"></div><div class="card-info">老李動態</div></div>
+        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_0_1.mp4" type="video/mp4"></video></div><div class="card-info">老李展示</div></div>
+    </div></section>
+
+    <section id="xiaoli" class="content-section"><div class="grid">
+        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_1_1.mp4" type="video/mp4"></video></div></div>
+        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_1_2.mp4" type="video/mp4"></video></div></div>
+        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_1_3.mp4" type="video/mp4"></video></div></div>
+    </div></section>
+
+    <section id="xiaoli_f" class="content-section"><div class="grid">
+        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_2_1.mp4" type="video/mp4"></video></div></div>
+        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_2_2.mp4" type="video/mp4"></video></div></div>
+    </div></section>
+
+    <section id="pili" class="content-section"><div class="grid">
+        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_3_1.mp4" type="video/mp4"></video></div></div>
+        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_3_2.mp4" type="video/mp4"></video></div></div>
+        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_3_3.mp4" type="video/mp4"></video></div></div>
+    </div></section>
+
+    <section id="mowei" class="content-section"><div class="grid">
+        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_4_1.mp4" type="video/mp4"></video></div></div>
+        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_4_2.mp4" type="video/mp4"></video></div></div>
+    </div></section>
+
+    <section id="vlab" class="content-section"><div class="grid">
+        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_5_1.mp4" type="video/mp4"></video></div></div>
+        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_5_2.mp4" type="video/mp4"></video></div></div>
+    </div></section>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.menu-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            event.currentTarget.classList.add('active');
+            
+            // 點擊選單後平滑滾動到內容區塊開頭
+            const bannerHeight = document.querySelector('.header-banner').offsetHeight;
+            const scrollOffset = bannerHeight + 60; // 預留導航列空間
+            window.scrollTo({ top: scrollOffset, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
