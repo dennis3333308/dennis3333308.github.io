@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lizi Q | Professional Portfolio (完整修復版)</title>
+    <title>Lizi Q | Professional Portfolio (寬螢幕修復版)</title>
     <style>
         :root { --bg: #030303; --accent: #00f2ff; --glass: rgba(255,255,255,0.02); --card-bg: #111; }
         body { background: var(--bg); color: #fff; font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif; margin: 0; overflow-x: hidden; }
@@ -16,31 +16,31 @@
         .menu-btn { background: none; border: 1px solid transparent; color: #888; cursor: pointer; font-size: 0.75rem; letter-spacing: 1px; transition: 0.3s; padding: 4px 6px; border-radius: 4px; }
         .menu-btn.active { color: var(--accent); border-color: var(--accent); background: rgba(0,242,255,0.05); }
 
-        /* 核心修復：Banner 根據圖片比例自適應 */
+        /* 核心修復：大氣 Banner 展示，移除重複 */
         .header-banner { 
             width: 100%; 
-            margin-top: 90px; /* 預留手機導航列空間 */
-            
-            /* 1. 移除固定高度，改用自動高度 */
+            margin-top: 90px; /* 手機空間 */
             height: auto; 
-            
-            /* 2. 強制圖片完整顯示且不重覆 */
-            background: url('header.png') top center / contain no-repeat; 
-            
-            /* 3. 使用圖片實際比例 (例如: 寬比高 = 2比1)，
-               這行 CSS 會讓容器根據寬度自動算出高度，保證不切圖。
-               你可以根據圖片的實際寬高調整這個數值 (例如 width/height) */
-            aspect-ratio: 2 / 1; 
-            
+            background: #000; /* 預設底色，防圖片與底層重複 */
             position: relative; 
-        }
-        
-        /* 桌機端導航列高度不同，需要微調 margin */
-        @media (min-width: 768px) {
-            .header-banner { margin-top: 60px; /* 桌機導航列空間 */ }
+            overflow: hidden;
         }
 
-        .header-banner::after { content: ''; position: absolute; bottom: 0; width: 100%; height: 50%; background: linear-gradient(transparent, var(--bg)); }
+        /* 桌機與寬螢幕 Banner 行為 */
+        @media (min-width: 768px) {
+            .header-banner { 
+                margin-top: 60px; /* 桌機空間 */
+                /* 核心修復：no-repeat 移除重複，contain 完整顯示，居中大氣展示 */
+                background: var(--bg) url('header.png') top center / contain no-repeat; 
+                
+                /* 為 Banner 容器指定一個合理的最大高度，防止在寬螢幕上無限拉高比例。
+                   你可以根據圖片寬高調低或調高這個數值 (例如 width/height)。 */
+                aspect-ratio: 16 / 9; /* 桌機常規比例 */
+                max-height: 500px; /* 寬螢幕最大高度限制 */
+            }
+        }
+
+        .header-banner::after { content: ''; position: absolute; bottom: 0; width: 100%; height: 60%; background: linear-gradient(transparent, var(--bg)); }
 
         /* 響應式內容佈局 */
         .content-section { display: none; padding: 20px 4%; animation: fadeIn 0.4s ease; }
@@ -89,7 +89,7 @@
             <button class="menu-btn" onclick="showPage('xiaoli_f')">小荔</button>
             <button class="menu-btn" onclick="showPage('pili')">小霹靂</button>
             <button class="menu-btn" onclick="showPage('mowei')">魔尾</button>
-            <button class="menu-btn" onclick="showPage('vlab')">廚房</button>
+            <button class="menu-btn" onclick="showPage('xiaoli_f')">小荔廚房</button>
         </div>
     </nav>
 
@@ -115,8 +115,8 @@
     </div></section>
 
     <section id="xiaoli_f" class="content-section"><div class="grid">
-        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_2_1.mp4" type="video/mp4"></video></div></div>
-        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_2_2.mp4" type="video/mp4"></video></div></div>
+        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_2_1.mp4" type="video/mp4"></video></div><div class="card-info">廚房專案-展示1</div></div>
+        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_2_2.mp4" type="video/mp4"></video></div><div class="card-info">廚房專案-展示2</div></div>
     </div></section>
 
     <section id="pili" class="content-section"><div class="grid">
@@ -124,29 +124,3 @@
         <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_3_2.mp4" type="video/mp4"></video></div></div>
         <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_3_3.mp4" type="video/mp4"></video></div></div>
     </div></section>
-
-    <section id="mowei" class="content-section"><div class="grid">
-        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_4_1.mp4" type="video/mp4"></video></div></div>
-        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_4_2.mp4" type="video/mp4"></video></div></div>
-    </div></section>
-
-    <section id="vlab" class="content-section"><div class="grid">
-        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_5_1.mp4" type="video/mp4"></video></div></div>
-        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_5_2.mp4" type="video/mp4"></video></div></div>
-    </div></section>
-
-    <script>
-        function showPage(pageId) {
-            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
-            document.querySelectorAll('.menu-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-            event.currentTarget.classList.add('active');
-            
-            // 點擊選單後平滑滾動到內容區塊開頭
-            const bannerHeight = document.querySelector('.header-banner').offsetHeight;
-            const scrollOffset = bannerHeight + 60; // 預留導航列空間
-            window.scrollTo({ top: scrollOffset, behavior: 'smooth' });
-        }
-    </script>
-</body>
-</html>
