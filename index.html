@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lizi Q | Professional Portfolio (視覺優化版)</title>
+    <title>Lizi Q | Professional Portfolio (純 Logo 版)</title>
     <style>
         :root { --bg: #030303; --accent: #00f2ff; --glass: rgba(255,255,255,0.02); --card-bg: #111; }
         body { background: var(--bg); color: #fff; font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif; margin: 0; overflow-x: hidden; }
         
-        /* 導航列架構優化 */
+        /* 1. 極簡導航列架構 */
         nav { 
             background: rgba(10,10,10,0.95); 
             border-bottom: 1px solid #222; 
-            padding: 15px 5%; 
+            padding: 12px 5%; /* 微調間距 */
             position: fixed; 
             width: 100%; 
             top: 0; 
@@ -27,84 +27,76 @@
         .logo-area { 
             display: flex; 
             align-items: center; 
-            gap: 20px; 
-            margin-bottom: 15px; 
+            margin-bottom: 10px; /* 手機端 Logo 與選單的間距 */
         }
 
-        /* 核心修復：Logo 放大兩倍 */
+        /* 核心修復：純 Logo 大氣展示 */
         .logo-area img { 
-            height: 70px; /* 從 28px/35px 直接拉升到 70px */
-            border-radius: 8px; 
-            box-shadow: 0 0 15px rgba(0,242,255,0.2);
+            height: 70px; /* 保持放大一倍的高辨識度尺寸 */
+            border-radius: 10px; /* 增加一點精品感的圓角 */
+            box-shadow: 0 0 20px rgba(0,242,255,0.25); /* 強化青色發光 */
+            transition: 0.3s ease;
         }
+        .logo-area img:hover { transform: scale(1.03); }
 
-        .logo-text { 
-            letter-spacing: 4px; 
-            font-weight: 300; 
-            font-size: 1.4rem; 
-            color: #fff;
-        }
-
-        /* 核心修復：防止選單被切掉 */
+        /* 核心修復：按鈕自適應換行 */
         .menu { 
             display: flex; 
             gap: 10px; 
-            overflow-x: auto; /* 手機端可左右滑動 */
-            white-space: nowrap; /* 強制不換行 */
-            width: 100%; 
-            justify-content: flex-start;
-            padding-bottom: 5px;
-            -webkit-overflow-scrolling: touch;
+            flex-wrap: wrap; /* 視窗縮小時自動換行 */
+            justify-content: center;
+            width: 100%;
         }
-        
-        .menu::-webkit-scrollbar { display: none; } /* 隱藏捲軸保持專業感 */
 
         .menu-btn { 
             background: none; 
             border: 1px solid #333; 
             color: #aaa; 
             cursor: pointer; 
-            font-size: 0.85rem; 
+            font-size: clamp(0.75rem, 2vw, 0.85rem); 
             letter-spacing: 1px; 
             transition: 0.3s; 
-            padding: 6px 12px; 
+            padding: 6px 14px; 
             border-radius: 20px;
-            flex-shrink: 0; /* 防止按鈕被擠壓 */
+            white-space: nowrap;
         }
         .menu-btn.active { color: var(--accent); border-color: var(--accent); background: rgba(0,242,255,0.1); }
 
+        /* Banner 完整比例不切割 */
         .header-banner { 
             width: 100%; 
-            margin-top: 160px; /* 適配放大後的導航列 */
+            margin-top: 180px; /* 適配換行後的選單空間 */
             height: auto; 
             background: var(--bg) url('header.png') top center / contain no-repeat; 
             aspect-ratio: 2 / 1; 
             position: relative; 
         }
 
+        /* 桌機與寬螢幕 Banner 行為 */
         @media (min-width: 768px) {
-            nav { flex-direction: row; justify-content: space-between; padding: 15px 40px; }
+            nav { flex-direction: row; justify-content: space-between; padding: 12px 40px; }
             .logo-area { margin-bottom: 0; }
-            .menu { width: auto; justify-content: flex-end; overflow: visible; }
-            .header-banner { margin-top: 100px; max-height: 500px; }
+            .menu { width: auto; justify-content: flex-end; }
+            .header-banner { margin-top: 110px; max-height: 500px; }
         }
 
         .header-banner::after { content: ''; position: absolute; bottom: 0; width: 100%; height: 50%; background: linear-gradient(transparent, var(--bg)); }
         .content-section { display: none; padding: 20px 5%; animation: fadeIn 0.4s ease; }
         .content-section.active { display: block; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; align-items: start; }
+        
+        /*作品展示網格 */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; align-items: start; }
         .card { background: var(--card-bg); border: 1px solid #222; border-radius: 12px; overflow: hidden; }
         .media-container { width: 100%; position: relative; aspect-ratio: 16/9; background: #000; }
         .media-container video, .media-container img { width: 100%; height: 100%; object-fit: contain; }
-        .card-info { padding: 12px; text-align: center; font-size: 0.8rem; color: #777; border-top: 1px solid #222; }
+        .card-info { padding: 12px; text-align: center; font-size: 0.8rem; color: #666; border-top: 1px solid #222; }
     </style>
 </head>
 <body>
     <nav>
         <div class="logo-area">
             <img src="LiziQ Logo.jpg" alt="Logo">
-            <span class="logo-text">Lizi Q LAB</span>
-        </div>
+            </div>
         <div class="menu">
             <button class="menu-btn active" onclick="showPage('home')">首頁</button>
             <button class="menu-btn" onclick="showPage('laoli')">老李</button>
@@ -112,46 +104,31 @@
             <button class="menu-btn" onclick="showPage('xiaoli_f')">小荔</button>
             <button class="menu-btn" onclick="showPage('pili')">小霹靂</button>
             <button class="menu-btn" onclick="showPage('mowei')">魔尾</button>
-            <button class="menu-btn" onclick="showPage('xiaoli_f')">小荔廚房</button>
+            <button class="menu-btn" onclick="showPage('vlab')">小荔廚房</button>
         </div>
     </nav>
 
     <div class="header-banner"></div>
 
     <section id="home" class="content-section active">
-        <h2 style="text-align:center; font-weight:200; letter-spacing:5px; margin-top:40px;">CHANNEL SELECTION</h2>
+        <h2 style="text-align:center; font-weight:200; letter-spacing:5px;">CHANNEL SELECTION</h2>
         <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; margin-top:30px;">
-            <a href="http://www.youtube.com/@LiziQ3308" target="_blank" style="background:#111; padding:20px; border-radius:10px; border-left:4px solid #ff0000; text-decoration:none; color:white;"><h3>Lizi Q Main</h3><p>Professional Shorts & Animation</p></a>
-            <a href="http://www.youtube.com/@LiziQanimals" target="_blank" style="background:#111; padding:20px; border-radius:10px; border-left:4px solid #ff0000; text-decoration:none; color:white;"><h3>Lizi Q Animals</h3><p>AI Fantasy Animal Lab</p></a>
+            <a href="http://www.youtube.com/@LiziQ3308" target="_blank" style="background:#111; padding:20px; border-radius:10px; border-left:4px solid #f00; text-decoration:none; color:white;"><h3>Lizi Q Main</h3><p>Professional Shorts & Animation</p></a>
+            <a href="http://www.youtube.com/@LiziQanimals" target="_blank" style="background:#111; padding:20px; border-radius:10px; border-left:4px solid #f00; text-decoration:none; color:white;"><h3>Lizi Q Animals</h3><p>AI Fantasy Animal Lab</p></a>
         </div>
     </section>
 
-    <section id="laoli" class="content-section"><div class="grid">
-        <div class="card"><div class="media-container"><img src="Lizi Q_0_0.gif"></div><div class="card-info">老李動態</div></div>
-        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_0_1.mp4" type="video/mp4"></video></div><div class="card-info">老李展示</div></div>
-    </div></section>
-
-    <section id="xiaoli" class="content-section"><div class="grid">
-        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_1_1.mp4" type="video/mp4"></video></div></div>
-        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_1_2.mp4" type="video/mp4"></video></div></div>
-        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_1_3.mp4" type="video/mp4"></video></div></div>
-    </div></section>
-
-    <section id="xiaoli_f" class="content-section"><div class="grid">
-        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_2_1.mp4" type="video/mp4"></video></div><div class="card-info">廚房專案展示</div></div>
-        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_2_2.mp4" type="video/mp4"></video></div></div>
-    </div></section>
-
-    <section id="pili" class="content-section"><div class="grid">
-        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_3_1.mp4" type="video/mp4"></video></div></div>
-        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_3_2.mp4" type="video/mp4"></video></div></div>
-        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_3_3.mp4" type="video/mp4"></video></div></div>
-    </div></section>
-
-    <section id="mowei" class="content-section"><div class="grid">
-        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_4_1.mp4" type="video/mp4"></video></div></div>
-        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_4_2.mp4" type="video/mp4"></video></div></div>
-    </div></section>
+    <section id="laoli" class="content-section"><div class="grid"><div class="card"><div class="media-container"><img src="Lizi Q_0_0.gif"></div><div class="card-info">老李動態</div></div></div></section>
+    <section id="xiaoli" class="content-section"><div class="grid"><div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_1_1.mp4" type="video/mp4"></video></div></div></div></section>
+    <section id="xiaoli_f" class="content-section"><div class="grid"><div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_2_1.mp4" type="video/mp4"></video></div></div></div></section>
+    <section id="pili" class="content-section"><div class="grid"><div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_3_1.mp4" type="video/mp4"></video></div></div></div></section>
+    <section id="mowei" class="content-section"><div class="grid"><div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_4_1.mp4" type="video/mp4"></video></div></div></div></section>
+    <section id="vlab" class="content-section">
+        <div class="grid">
+            <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_5_1.mp4" type="video/mp4"></video></div><div class="card-info">冰水復甦實驗</div></div>
+            <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_5_2.mp4" type="video/mp4"></video></div></div>
+        </div>
+    </section>
 
     <script>
         function showPage(pageId) {
@@ -159,7 +136,7 @@
             document.querySelectorAll('.menu-btn').forEach(b => b.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
             event.currentTarget.classList.add('active');
-            window.scrollTo({ top: 150, behavior: 'smooth' });
+            window.scrollTo({ top: 110, behavior: 'smooth' });
         }
     </script>
 </body>
