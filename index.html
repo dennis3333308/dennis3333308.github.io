@@ -1,28 +1,148 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
 <head>
- <meta charset="UTF-8">
- <title>Mowei 3D Online</title>
- <style>
- body { background: #121212; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; color: #00f2ff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
- .card { text-align: center; background: #1e1e1e; padding: 40px; border-radius: 20px; box-shadow: 0 0 30px rgba(0,242,255,0.2); border: 1px solid #333; }
- img { 
- width: 280px; 
- animation: float 4s ease-in-out infinite; 
- filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
- }
- @keyframes float {
- 0%, 100% { transform: translateY(0) rotate(0deg); }
- 50% { transform: translateY(-20px) rotate(2deg); }
- }
- h1 { letter-spacing: 5px; text-transform: uppercase; font-size: 1.5rem; margin-top: 20px; }
- </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DENNIS 3D & ANIMATION LAB</title>
+    <style>
+        :root {
+            --bg: #0d0d0d;
+            --accent: #00f2ff;
+            --yt-red: #ff0000;
+            --card-bg: #1a1a1a;
+            --text: #ffffff;
+        }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        nav {
+            width: 100%;
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 1px solid #333;
+            letter-spacing: 5px;
+            font-size: 0.8rem;
+            color: var(--accent);
+            background: rgba(13,13,13,0.9);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header { margin: 50px 0; text-align: center; }
+        h1 { font-weight: 200; font-size: 2.5rem; margin: 0; letter-spacing: 12px; }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            width: 90%;
+            max-width: 1200px;
+            padding-bottom: 80px;
+        }
+
+        /* 頻道專屬卡片樣式 */
+        .card-yt {
+            grid-column: span 1;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            background: linear-gradient(145deg, #1a1a1a, #251010);
+            text-decoration: none;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+            border-radius: 20px;
+            transition: 0.4s;
+        }
+        
+        .card-yt:hover {
+            transform: scale(1.03);
+            border-color: var(--yt-red);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+        }
+
+        .yt-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--yt-red);
+        }
+
+        /* 作品卡片樣式 */
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #222;
+            transition: 0.3s;
+        }
+        
+        .card:hover { transform: translateY(-10px); border-color: var(--accent); }
+        .card img { width: 100%; border-radius: 12px; }
+        .mowei-img { animation: float 4s ease-in-out infinite; }
+        
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+        
+        h3 { margin: 15px 0 5px 0; letter-spacing: 2px; }
+        p { font-size: 0.85rem; color: #888; margin: 0; }
+        .yt-desc { color: #ccc; margin-top: 10px; font-size: 0.9rem; line-height: 1.4; }
+
+        @media (min-width: 900px) { .card-yt { grid-column: span 2; } }
+    </style>
 </head>
 <body>
- <div class="card">
- <img src="mowei.png" alt="Mowei 3D">
- <h1>Mowei 3D Online</h1>
- <p>✅ 系統修復完成 | 自動化部署已啟動</p>
- </div>
+
+    <nav>LIZI Q V-LAB AUTOMATION</nav>
+
+    <header>
+        <h1>DENNIS</h1>
+        <p style="color: #555; letter-spacing: 5px; margin-top:10px;">3D & AI ANIMATION CREATOR</p>
+    </header>
+
+    <div class="gallery">
+        <a href="http://www.youtube.com/@LiziQ3308" target="_blank" class="card-yt">
+            <div class="yt-icon">▶ YouTube</div>
+            <h3>Lizi Q (@LiziQ3308)</h3>
+            <p class="yt-desc">主頻道：專注於高品質短片創作，展現精確的節奏感與角色驅動的精彩瞬間。</p>
+        </a>
+
+        <a href="http://www.youtube.com/@LiziQanimals" target="_blank" class="card-yt">
+            <div class="yt-icon">▶ YouTube</div>
+            <h3>Lizi Q animals (@LiziQanimals)</h3>
+            <p class="yt-desc">奇幻動物世界：利用 AI 技術開啟的創意實驗室，探索 AI 生成的動物故事與視覺美學。</p>
+        </a>
+
+        <div class="card">
+            <img src="mowei.png" class="mowei-img">
+            <h3>MOWEI 3D</h3>
+            <p>Character Model</p>
+        </div>
+
+        <div class="card">
+            <img src="archer.gif">
+            <h3>ARCHER</h3>
+            <p>Motion Graphics</p>
+        </div>
+
+        <div class="card">
+            <img src="laughing_oldman.gif">
+            <h3>EXPRESSION</h3>
+            <p>Facial Animation Test</p>
+        </div>
+    </div>
+
+    <footer style="padding: 50px; color: #333; font-size: 0.7rem;">© 2026 Lizi Q Lab.</footer>
+
 </body>
 </html>
