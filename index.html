@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lizi Q | Professional Portfolio (完整版)</title>
+    <title>Lizi Q | Professional Portfolio (完整修復版)</title>
     <style>
         :root { --bg: #030303; --accent: #00f2ff; --glass: rgba(255,255,255,0.02); --card-bg: #111; }
         body { background: var(--bg); color: #fff; font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif; margin: 0; overflow-x: hidden; }
@@ -16,28 +16,49 @@
         .menu-btn { background: none; border: 1px solid transparent; color: #888; cursor: pointer; font-size: 0.75rem; letter-spacing: 1px; transition: 0.3s; padding: 4px 6px; border-radius: 4px; }
         .menu-btn.active { color: var(--accent); border-color: var(--accent); background: rgba(0,242,255,0.05); }
 
-        /* 自適應 Banner */
-        .header-banner { width: 100%; height: 25vh; min-height: 150px; margin-top: 90px; background: url('header.png') center/cover no-repeat; position: relative; }
-        .header-banner::after { content: ''; position: absolute; bottom: 0; width: 100%; height: 60%; background: linear-gradient(transparent, var(--bg)); }
+        /* 核心修復：Banner 根據圖片比例自適應 */
+        .header-banner { 
+            width: 100%; 
+            margin-top: 90px; /* 預留手機導航列空間 */
+            
+            /* 1. 移除固定高度，改用自動高度 */
+            height: auto; 
+            
+            /* 2. 強制圖片完整顯示且不重覆 */
+            background: url('header.png') top center / contain no-repeat; 
+            
+            /* 3. 使用圖片實際比例 (例如: 寬比高 = 2比1)，
+               這行 CSS 會讓容器根據寬度自動算出高度，保證不切圖。
+               你可以根據圖片的實際寬高調整這個數值 (例如 width/height) */
+            aspect-ratio: 2 / 1; 
+            
+            position: relative; 
+        }
+        
+        /* 桌機端導航列高度不同，需要微調 margin */
+        @media (min-width: 768px) {
+            .header-banner { margin-top: 60px; /* 桌機導航列空間 */ }
+        }
+
+        .header-banner::after { content: ''; position: absolute; bottom: 0; width: 100%; height: 50%; background: linear-gradient(transparent, var(--bg)); }
 
         /* 響應式內容佈局 */
         .content-section { display: none; padding: 20px 4%; animation: fadeIn 0.4s ease; }
         .content-section.active { display: block; }
         
-        /* 核心優化：彈性網格 */
+        /* 彈性網格 */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; align-items: start; width: 100%; box-sizing: border-box; }
         
-        /* 核心優化：卡片與媒體不切割容器 */
+        /* 卡片與媒體容器 */
         .card { background: var(--card-bg); border: 1px solid #1a1a1a; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
         .media-container { width: 100%; position: relative; background: #000; display: flex; justify-content: center; align-items: center; }
         
-        /* 核心優化：contain 強制完整顯示 */
+        /* contain 強制媒體內容完整顯示 */
         .media-container video, .media-container img { max-width: 100%; max-height: 100%; object-fit: contain; }
         
-        /* 讓卡片高度統一，但內容不切割 (移除之前的強制比例 padding) */
         @media (min-width: 768px) {
             .grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
-            .media-container { aspect-ratio: 16/9; } /* 仍建議桌機填滿 16:9，但內容會 contain */
+            .media-container { aspect-ratio: 16/9; } 
         }
         
         .card-info { padding: 10px; text-align: center; font-size: 0.75rem; color: #777; border-top: 1px solid #1a1a1a; }
@@ -46,86 +67,16 @@
         .yt-box { background: #111; padding: 15px; border-radius: 10px; border-left: 4px solid #ff0000; text-decoration: none; color: white; transition: 0.3s; }
         .yt-box:hover { background: #1a1a1a; transform: scale(1.02); }
 
-        /* 桌機端微調 */
+        /* 桌機端導航列微調 */
         @media (min-width: 768px) {
             nav { flex-direction: row; justify-content: space-between; padding: 10px 40px; }
             .logo-area { margin-bottom: 0; }
             .menu { gap: 15px; }
             .menu-btn { font-size: 0.8rem; padding: 4px 10px; }
-            .header-banner { margin-top: 60px; height: 35vh; }
         }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="logo-area">
-            <img src="LiziQ Logo.jpg" alt="Logo">
-            <span style="letter-spacing: 2px; font-weight: 300; font-size: 0.9rem;">Lizi Q LAB</span>
-        </div>
-        <div class="menu">
-            <button class="menu-btn active" onclick="showPage('home')">首頁</button>
-            <button class="menu-btn" onclick="showPage('laoli')">老李</button>
-            <button class="menu-btn" onclick="showPage('xiaoli')">小李</button>
-            <button class="menu-btn" onclick="showPage('xiaoli_f')">小荔</button>
-            <button class="menu-btn" onclick="showPage('pili')">小霹靂</button>
-            <button class="menu-btn" onclick="showPage('mowei')">魔尾</button>
-            <button class="menu-btn" onclick="showPage('vlab')">廚房</button>
-        </div>
-    </nav>
-
-    <div class="header-banner"></div>
-
-    <section id="home" class="content-section active">
-        <h2 style="text-align:center; font-weight:200; letter-spacing:5px;">CHANNEL SELECTION</h2>
-        <div class="yt-area">
-            <a href="http://www.youtube.com/@LiziQ3308" target="_blank" class="yt-box"><h3>Lizi Q Main</h3><p>Professional Shorts & Animation</p></a>
-            <a href="http://www.youtube.com/@LiziQanimals" target="_blank" class="yt-box"><h3>Lizi Q Animals</h3><p>AI Fantasy Animal Lab</p></a>
-        </div>
-    </section>
-
-    <section id="laoli" class="content-section"><div class="grid">
-        <div class="card"><div class="media-container"><img src="Lizi Q_0_0.gif"></div><div class="card-info">老李動態</div></div>
-        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_0_1.mp4" type="video/mp4"></video></div><div class="card-info">老李展示</div></div>
-    </div></section>
-
-    <section id="xiaoli" class="content-section"><div class="grid">
-        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_1_1.mp4" type="video/mp4"></video></div></div>
-        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_1_2.mp4" type="video/mp4"></video></div></div>
-        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_1_3.mp4" type="video/mp4"></video></div></div>
-    </div></section>
-
-    <section id="xiaoli_f" class="content-section"><div class="grid">
-        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_2_1.mp4" type="video/mp4"></video></div></div>
-        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_2_2.mp4" type="video/mp4"></video></div></div>
-    </div></section>
-
-    <section id="pili" class="content-section"><div class="grid">
-        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_3_1.mp4" type="video/mp4"></video></div></div>
-        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_3_2.mp4" type="video/mp4"></video></div></div>
-        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_3_3.mp4" type="video/mp4"></video></div></div>
-    </div></section>
-
-    <section id="mowei" class="content-section"><div class="grid">
-        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_4_1.mp4" type="video/mp4"></video></div></div>
-        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_4_2.mp4" type="video/mp4"></video></div></div>
-    </div></section>
-
-    <section id="vlab" class="content-section"><div class="grid">
-        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_5_1.mp4" type="video/mp4"></video></div></div>
-        <div class="card"><div class="media-container"><video autoplay loop muted playsinline><source src="Lizi Q_5_2.mp4" type="video/mp4"></video></div></div>
-    </div></section>
-
-    <script>
-        function showPage(pageId) {
-            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
-            document.querySelectorAll('.menu-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-            event.currentTarget.classList.add('active');
-            window.scrollTo({ top: 150, behavior: 'smooth' });
-        }
-    </script>
-</body>
-</html>
     <nav>
         <div class="logo-area">
             <img src="LiziQ Logo.jpg" alt="Logo">
