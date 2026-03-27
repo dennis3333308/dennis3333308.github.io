@@ -1,0 +1,13 @@
+網頁規劃:我想分成 首頁(含Logo:LiziQ Logo.jpg),空白處放header.png,有兩個Yutube頻道介紹，
+上面有選單按鈕可以選"老李",小李,小荔,小霹靂,魔尾,LiziQ V_lab(小荔廚房)
+
+
+
+然後老李一頁(Lizi Q_0_0.gif,Lizi Q_0_1.mp4)
+小李一頁(Lizi Q_1_1.mp4,Lizi Q_1_2.mp4,Lizi Q_1_3.mp4),
+小荔一頁(Lizi Q_2_1.mp4),
+小霹靂一頁(Lizi Q_3_1.mp4,Lizi Q_3_2.mp4,Lizi Q_3_3.mp4),
+魔尾一頁(Lizi Q_4_1.mp4,Lizi Q_4_2.mp4),，
+LiziQ V_lab(小荔廚房)(Lizi Q_5_1.mp4,Lizi Q_5_2.mp4)1頁,
+
+每一頁2~3個動畫。
